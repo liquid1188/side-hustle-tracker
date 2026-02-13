@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Side Hustle Income Tracker — Free Excel Template for Freelancers</title>
+<meta name="description" content="Track your side hustle income, expenses, profit and taxes automatically with this Excel spreadsheet template. Works in Excel, Google Sheets and Numbers.">
+<meta name="keywords" content="side hustle tracker, income tracker spreadsheet, freelance income tracker, expense tracker excel, tax tracker spreadsheet, side hustle tax calculator">
+<link rel="canonical" href="https://liquid1188.github.io/side-hustle-tracker/">
+<meta property="og:title" content="Side Hustle Income Tracker — Automated Excel Template">
+<meta property="og:description" content="Track income, expenses, profit & taxes in one automated spreadsheet. Works in Excel, Google Sheets & Numbers.">
+<meta property="og:type" content="product">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #FAFAF8;
+  --text: #1A1A1A;
+  --text2: #6B6B6B;
+  --accent: #16A34A;
+  --accent-dark: #15803D;
+  --surface: #FFFFFF;
+  --border: #E5E5E5;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Nav */
+.nav {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text2);
+}
+
+/* Hero */
+.hero {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.hero h1 span { color: var(--accent); }
+.hero p {
+  font-size: 18px;
+  color: var(--text2);
+  max-width: 540px;
+  margin: 0 auto 28px;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--accent);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.cta-btn:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(22,163,74,0.3); }
+.cta-sub {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text2);
+}
+
+/* Preview */
+.preview {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+.preview-img {
+  background: #0F172A;
+  border-radius: 16px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.prev-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.prev-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748B;
+  margin-bottom: 6px;
+}
+.prev-val { font-size: 24px; font-weight: 800; }
+.prev-val.g { color: #4ADE80; }
+.prev-val.r { color: #F87171; }
+.prev-val.b { color: #60A5FA; }
+.prev-val.y { color: #FBBF24; }
+
+/* Features */
+.features {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.features h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.feat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.feat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.feat-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.feat h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.feat p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+/* How it works */
+.how {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.how h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.steps {
+  display: flex;
+  gap: 24px;
+}
+.step {
+  flex: 1;
+  text-align: center;
+}
+.step-num {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.step h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.step p {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+/* FAQ - SEO gold */
+.faq {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.faq h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.faq-item p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* Bottom CTA */
+.bottom-cta {
+  text-align: center;
+  padding: 60px 24px;
+  background: #F0FDF4;
+  border-top: 1px solid #BBF7D0;
+}
+.bottom-cta h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.bottom-cta p {
+  font-size: 16px;
+  color: var(--text2);
+  margin-bottom: 24px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  color: var(--text2);
+}
+
+/* Schema markup for SEO */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 28px; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .steps { flex-direction: column; }
+  .preview-img { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Side Hustle Income Tracker",
+  "description": "Automated Excel spreadsheet template to track side hustle income, expenses, profit margins and quarterly tax estimates.",
+  "category": "Spreadsheet Templates",
+  "offers": {
+    "@type": "Offer",
+    "price": "9.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this side hustle tracker work in Google Sheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The template works in Microsoft Excel, Google Sheets, Apple Numbers, and LibreOffice. All formulas are compatible across platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the tax estimate work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Tax Summary tab automatically estimates your federal, state, and self-employment tax based on your net income. It also calculates recommended quarterly payment amounts. You can adjust the tax rates to match your actual bracket."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for multiple side hustles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Income Log has a Category column so you can tag each payment by source — freelance, digital products, consulting, etc. The Dashboard shows your totals across all categories."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this template free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The template is available for $9. It includes a fully automated dashboard, income and expense logs, tax estimates, and instructions. There are no subscriptions or recurring fees — you own it forever."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="nav">Side Hustle Income Tracker — Excel Template for Freelancers & Self-Employed</div>
+
+<section class="hero">
+  <div class="hero-badge">📊 Excel Template</div>
+  <h1>Finally Know Where Your <span>Side Hustle Money</span> Goes</h1>
+  <p>Track income, expenses, profit and taxes in one automated spreadsheet. Open it, enter your numbers, and the dashboard does the rest.</p>
+  <a href="GUMROAD_LINK" class="cta-btn" id="mainCta">Get the Tracker — $9</a>
+  <span class="cta-sub">Instant download · Works in Excel, Google Sheets & Numbers</span>
+</section>
+
+<section class="preview">
+  <div class="preview-img">
+    <div class="prev-card"><div class="prev-label">Income</div><div class="prev-val g">$2,166</div></div>
+    <div class="prev-card"><div class="prev-label">Expenses</div><div class="prev-val r">$187</div></div>
+    <div class="prev-card"><div class="prev-label">Profit</div><div class="prev-val b">$1,979</div></div>
+    <div class="prev-card"><div class="prev-label">Tax Est.</div><div class="prev-val y">$494</div></div>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Everything You Need in One Spreadsheet</h2>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon">📈</div>
+      <h3>Auto-Calculating Dashboard</h3>
+      <p>Monthly income, expenses, net profit, profit margins, and cumulative earnings — all calculated automatically as you enter data.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">💰</div>
+      <h3>Income & Expense Logs</h3>
+      <p>Organized logs with date, source, description, category, and payment method. Just fill in the rows — totals update instantly.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">🧾</div>
+      <h3>Quarterly Tax Estimates</h3>
+      <p>Automatic estimates for federal, state, and self-employment tax. Never be surprised by a tax bill again.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">⚡</div>
+      <h3>Ready in 2 Minutes</h3>
+      <p>No complicated setup, no macros, no formulas to write. Open the file and start entering your numbers immediately.</p>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Download</h3>
+      <p>Get the .xlsx file instantly after purchase. Open it in Excel, Google Sheets, or Numbers.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Log Your Numbers</h3>
+      <p>Enter income and expenses as they come in. Each entry takes about 10 seconds.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>See Everything</h3>
+      <p>The Dashboard and Tax Summary update automatically. Always know where you stand.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+  
+  <div class="faq-item">
+    <h3>Does this work in Google Sheets?</h3>
+    <p>Yes. The template works in Microsoft Excel, Google Sheets, Apple Numbers, and LibreOffice. All formulas are compatible across platforms.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>How does the tax estimate work?</h3>
+    <p>The Tax Summary tab automatically estimates your federal income tax (22%), state tax (5%), and self-employment tax (15.3%) based on your net income after deductions. It also calculates recommended quarterly payment amounts so you can set money aside throughout the year. You can adjust all tax rates to match your actual bracket.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Can I use this for multiple side hustles?</h3>
+    <p>Yes. The Income Log has a Category column so you can tag each payment by source — freelance, digital products, consulting, etc. The Dashboard shows your totals across all categories automatically.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>What if I'm not good with spreadsheets?</h3>
+    <p>The tracker includes a "How To Use" tab with step-by-step instructions. All you do is enter data in the Income and Expenses tabs — every calculation, total, and estimate is handled automatically by the built-in formulas.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Is there a subscription or recurring fee?</h3>
+    <p>No. You pay once and own the spreadsheet forever. There are no subscriptions, no accounts to create, and no software to install.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Who is this for?</h3>
+    <p>Anyone earning money outside of a traditional W-2 job — freelancers, Etsy sellers, Gumroad creators, Uber drivers, consultants, tutors, content creators, and anyone with a side hustle who wants to stay organized and know their tax obligation.</p>
+  </div>
+</section>
+
+<section class="bottom-cta">
+  <h2>Stop Guessing. Start Tracking.</h2>
+  <p>One spreadsheet. Every number you need. Set up in 2 minutes.</p>
+  <a href="GUMROAD_LINK" class="cta-btn">Get the Tracker — $9</a>
+  <span class="cta-sub">Instant download · One-time purchase · No subscription</span>
+</section>
+
+<footer>&copy; 2025 Side Hustle Tracker. All rights reserved.</footer>
+
+</body>
+</html>

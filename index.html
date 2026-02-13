@@ -3,23 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Side Hustle Income Tracker — Free Excel Template for Freelancers</title>
-<meta name="description" content="Track your side hustle income, expenses, profit and taxes automatically with this Excel spreadsheet template. Works in Excel, Google Sheets and Numbers.">
-<meta name="keywords" content="side hustle tracker, income tracker spreadsheet, freelance income tracker, expense tracker excel, tax tracker spreadsheet, side hustle tax calculator">
+<title>Free Online Tools — Invoice Generator, Text Tools & Side Hustle Tracker</title>
+<meta name="description" content="Free online tools: invoice generator, word counter, case converter, text cleaner, and a side hustle income tracker spreadsheet. No signup required.">
+<meta name="keywords" content="free invoice generator, word counter online, case converter, side hustle tracker, freelance income tracker, text tools, expense tracker spreadsheet">
 <link rel="canonical" href="https://liquid1188.github.io/side-hustle-tracker/">
-<meta property="og:title" content="Side Hustle Income Tracker — Automated Excel Template">
-<meta property="og:description" content="Track income, expenses, profit & taxes in one automated spreadsheet. Works in Excel, Google Sheets & Numbers.">
-<meta property="og:type" content="product">
+<meta property="og:title" content="Free Online Tools — Invoicer, TextKit & Side Hustle Tracker">
+<meta property="og:description" content="Free invoice generator, text tools, and an automated income tracker spreadsheet for freelancers.">
+<meta property="og:type" content="website">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --bg: #FAFAF8;
   --text: #1A1A1A;
   --text2: #6B6B6B;
-  --accent: #16A34A;
-  --accent-dark: #15803D;
   --surface: #FFFFFF;
   --border: #E5E5E5;
+  --green: #16A34A;
+  --green-light: #F0FDF4;
+  --green-border: #BBF7D0;
+  --orange: #EA580C;
+  --orange-light: #FFF7ED;
+  --orange-border: #FED7AA;
+  --blue: #2563EB;
+  --blue-light: #EFF6FF;
+  --blue-border: #BFDBFE;
+  --dark: #0F172A;
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -30,184 +38,242 @@ body {
 
 /* Nav */
 .nav {
-  padding: 16px 24px;
+  padding: 18px 24px;
   border-bottom: 1px solid var(--border);
   background: var(--surface);
-  text-align: center;
-  font-size: 14px;
-  color: var(--text2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
+.nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav a:hover { color: var(--text); }
+.nav-logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--green); }
 
 /* Hero */
 .hero {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 60px 24px 40px;
+  padding: 64px 24px 48px;
   text-align: center;
 }
-.hero-badge {
-  display: inline-block;
-  padding: 4px 14px;
-  background: #F0FDF4;
-  border: 1px solid #BBF7D0;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 20px;
-}
 .hero h1 {
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.15;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
   margin-bottom: 16px;
 }
-.hero h1 span { color: var(--accent); }
 .hero p {
   font-size: 18px;
   color: var(--text2);
-  max-width: 540px;
-  margin: 0 auto 28px;
-}
-.cta-btn {
-  display: inline-block;
-  padding: 16px 40px;
-  background: var(--accent);
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-.cta-btn:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(22,163,74,0.3); }
-.cta-sub {
-  display: block;
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--text2);
+  max-width: 560px;
+  margin: 0 auto 12px;
 }
 
-/* Preview */
-.preview {
-  max-width: 800px;
-  margin: 0 auto 60px;
-  padding: 0 24px;
-}
-.preview-img {
-  background: #0F172A;
-  border-radius: 16px;
-  padding: 32px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-.prev-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-}
-.prev-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #64748B;
-  margin-bottom: 6px;
-}
-.prev-val { font-size: 24px; font-weight: 800; }
-.prev-val.g { color: #4ADE80; }
-.prev-val.r { color: #F87171; }
-.prev-val.b { color: #60A5FA; }
-.prev-val.y { color: #FBBF24; }
-
-/* Features */
-.features {
-  max-width: 720px;
+/* Product Cards */
+.products {
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 24px 60px;
-}
-.features h2 {
-  font-size: 28px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 36px;
-}
-.feat-grid {
+  padding: 20px 24px 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
 }
-.feat {
+
+.product-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
 }
-.feat-icon {
-  font-size: 24px;
-  margin-bottom: 10px;
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
 }
-.feat h3 {
-  font-size: 16px;
+
+.card-visual {
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+}
+.card-visual.green-bg { background: linear-gradient(135deg, #0F172A, #1E3A2F); }
+.card-visual.orange-bg { background: linear-gradient(135deg, #0F172A, #2A1A0F); }
+.card-visual.blue-bg { background: linear-gradient(135deg, #0F172A, #0F1A2E); }
+
+.card-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card-visual h3 {
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 6px;
+  color: #F8FAFC;
+  margin-bottom: 4px;
 }
-.feat p {
+.card-visual p {
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+.mini-preview {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+.mini-stat {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 8px 12px;
+  text-align: center;
+}
+.mini-stat-label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.8px; color: #64748B; }
+.mini-stat-val { font-size: 14px; font-weight: 700; }
+.mini-stat-val.mg { color: #4ADE80; }
+.mini-stat-val.mr { color: #F87171; }
+.mini-stat-val.mb { color: #60A5FA; }
+
+.mini-tools {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+.mini-tool {
+  padding: 4px 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.card-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-body p {
   font-size: 14px;
   color: var(--text2);
   line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
 }
 
-/* How it works */
-.how {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 24px 60px;
+.card-features {
+  list-style: none;
+  margin-bottom: 20px;
 }
-.how h2 {
-  font-size: 28px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 36px;
-}
-.steps {
+.card-features li {
+  font-size: 13px;
+  color: var(--text);
+  padding: 4px 0;
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 8px;
 }
-.step {
-  flex: 1;
-  text-align: center;
-}
-.step-num {
-  width: 40px;
-  height: 40px;
-  background: var(--accent);
-  color: white;
+.card-features li::before {
+  content: '✓';
+  font-size: 12px;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 12px;
+  flex-shrink: 0;
 }
-.step h3 {
+.green-check li::before { background: var(--green-light); color: var(--green); }
+.orange-check li::before { background: var(--orange-light); color: var(--orange); }
+.blue-check li::before { background: var(--blue-light); color: var(--blue); }
+
+.card-btn {
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 700;
-  margin-bottom: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
 }
-.step p {
+.card-btn:hover { transform: translateY(-1px); }
+.btn-green { background: var(--green); color: white; }
+.btn-green:hover { background: #15803D; box-shadow: 0 4px 16px rgba(22,163,74,0.3); }
+.btn-orange { background: var(--orange); color: white; }
+.btn-orange:hover { background: #C2410C; box-shadow: 0 4px 16px rgba(234,88,12,0.3); }
+.btn-blue { background: var(--blue); color: white; }
+.btn-blue:hover { background: #1D4ED8; box-shadow: 0 4px 16px rgba(37,99,235,0.3); }
+
+.card-price {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--text2);
+}
+.card-price strong {
+  font-size: 24px;
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* Use Cases Section */
+.use-cases {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+.use-cases h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.use-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.use-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+}
+.use-item h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.use-item p {
   font-size: 13px;
   color: var(--text2);
 }
 
-/* FAQ - SEO gold */
+/* FAQ */
 .faq {
   max-width: 720px;
   margin: 0 auto;
@@ -221,68 +287,35 @@ body {
 }
 .faq-item {
   border-bottom: 1px solid var(--border);
-  padding: 20px 0;
+  padding: 18px 0;
 }
-.faq-item h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.faq-item p {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.6;
-}
-
-/* Bottom CTA */
-.bottom-cta {
-  text-align: center;
-  padding: 60px 24px;
-  background: #F0FDF4;
-  border-top: 1px solid #BBF7D0;
-}
-.bottom-cta h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.bottom-cta p {
-  font-size: 16px;
-  color: var(--text2);
-  margin-bottom: 24px;
-}
+.faq-item h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.faq-item p { font-size: 14px; color: var(--text2); }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 24px;
+  padding: 32px 24px;
   font-size: 12px;
   color: var(--text2);
+  border-top: 1px solid var(--border);
 }
 
-/* Schema markup for SEO */
-@media (max-width: 640px) {
-  .hero h1 { font-size: 28px; }
-  .feat-grid { grid-template-columns: 1fr; }
-  .steps { flex-direction: column; }
-  .preview-img { grid-template-columns: 1fr 1fr; }
+@media (max-width: 768px) {
+  .products { grid-template-columns: 1fr; max-width: 440px; }
+  .hero h1 { font-size: 30px; }
+  .use-grid { grid-template-columns: 1fr; }
+  .nav { flex-wrap: wrap; gap: 12px; }
 }
 </style>
 
-<!-- Structured Data for SEO -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Side Hustle Income Tracker",
-  "description": "Automated Excel spreadsheet template to track side hustle income, expenses, profit margins and quarterly tax estimates.",
-  "category": "Spreadsheet Templates",
-  "offers": {
-    "@type": "Offer",
-    "price": "9.00",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock"
-  }
+  "@type": "WebSite",
+  "name": "LiquidFlow Tools",
+  "url": "https://liquid1188.github.io/side-hustle-tracker/",
+  "description": "Free online tools: invoice generator, text utilities, and side hustle income tracker."
 }
 </script>
 <script type="application/ld+json">
@@ -292,34 +325,34 @@ footer {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does this side hustle tracker work in Google Sheets?",
+      "name": "Are the online tools really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The template works in Microsoft Excel, Google Sheets, Apple Numbers, and LibreOffice. All formulas are compatible across platforms."
+        "text": "Yes. The Invoice Generator and TextKit are 100% free with no signup required. The Side Hustle Tracker spreadsheet is a one-time $9 purchase."
       }
     },
     {
       "@type": "Question",
-      "name": "How does the tax estimate work?",
+      "name": "Does the invoice generator save my data?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Tax Summary tab automatically estimates your federal, state, and self-employment tax based on your net income. It also calculates recommended quarterly payment amounts. You can adjust the tax rates to match your actual bracket."
+        "text": "No. Everything runs in your browser. No data is sent to any server, no accounts are created, and nothing is stored. Your invoice details stay on your device."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use this for multiple side hustles?",
+      "name": "Does the side hustle tracker work in Google Sheets?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The Income Log has a Category column so you can tag each payment by source — freelance, digital products, consulting, etc. The Dashboard shows your totals across all categories."
+        "text": "Yes. The template works in Microsoft Excel, Google Sheets, Apple Numbers, and LibreOffice."
       }
     },
     {
       "@type": "Question",
-      "name": "Is this template free?",
+      "name": "What text tools are included in TextKit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The template is available for $9. It includes a fully automated dashboard, income and expense logs, tax estimates, and instructions. There are no subscriptions or recurring fees — you own it forever."
+        "text": "TextKit includes a word and character counter, case converter (uppercase, lowercase, title case, camelCase, snake_case, kebab-case), text cleaner, Lorem Ipsum generator, find and replace, and Base64/URL/HTML encoder and decoder."
       }
     }
   ]
@@ -328,68 +361,117 @@ footer {
 </head>
 <body>
 
-<div class="nav">Side Hustle Income Tracker — Excel Template for Freelancers & Self-Employed</div>
+<nav class="nav">
+  <div class="nav-logo">liquid<span>flow</span></div>
+  <a href="#tracker">Tracker</a>
+  <a href="#invoicer">Invoicer</a>
+  <a href="#textkit">TextKit</a>
+</nav>
 
 <section class="hero">
-  <div class="hero-badge">📊 Excel Template</div>
-  <h1>Finally Know Where Your <span>Side Hustle Money</span> Goes</h1>
-  <p>Track income, expenses, profit and taxes in one automated spreadsheet. Open it, enter your numbers, and the dashboard does the rest.</p>
-  <a href="GUMROAD_LINK" class="cta-btn" id="mainCta">Get the Tracker — $9</a>
-  <span class="cta-sub">Instant download · Works in Excel, Google Sheets & Numbers</span>
+  <h1>Tools That Make Freelancing Easier</h1>
+  <p>An income tracker, invoice generator, and text toolkit — built for people who work for themselves.</p>
 </section>
 
-<section class="preview">
-  <div class="preview-img">
-    <div class="prev-card"><div class="prev-label">Income</div><div class="prev-val g">$2,166</div></div>
-    <div class="prev-card"><div class="prev-label">Expenses</div><div class="prev-val r">$187</div></div>
-    <div class="prev-card"><div class="prev-label">Profit</div><div class="prev-val b">$1,979</div></div>
-    <div class="prev-card"><div class="prev-label">Tax Est.</div><div class="prev-val y">$494</div></div>
-  </div>
-</section>
+<section class="products">
 
-<section class="features">
-  <h2>Everything You Need in One Spreadsheet</h2>
-  <div class="feat-grid">
-    <div class="feat">
-      <div class="feat-icon">📈</div>
-      <h3>Auto-Calculating Dashboard</h3>
-      <p>Monthly income, expenses, net profit, profit margins, and cumulative earnings — all calculated automatically as you enter data.</p>
+  <!-- SIDE HUSTLE TRACKER -->
+  <div class="product-card" id="tracker">
+    <div class="card-visual green-bg">
+      <span class="card-emoji">📊</span>
+      <h3>Side Hustle Tracker</h3>
+      <p>Excel spreadsheet template</p>
+      <div class="mini-preview">
+        <div class="mini-stat"><div class="mini-stat-label">Income</div><div class="mini-stat-val mg">$2,166</div></div>
+        <div class="mini-stat"><div class="mini-stat-label">Profit</div><div class="mini-stat-val mb">$1,979</div></div>
+        <div class="mini-stat"><div class="mini-stat-label">Tax</div><div class="mini-stat-val mr">$494</div></div>
+      </div>
     </div>
-    <div class="feat">
-      <div class="feat-icon">💰</div>
-      <h3>Income & Expense Logs</h3>
-      <p>Organized logs with date, source, description, category, and payment method. Just fill in the rows — totals update instantly.</p>
-    </div>
-    <div class="feat">
-      <div class="feat-icon">🧾</div>
-      <h3>Quarterly Tax Estimates</h3>
-      <p>Automatic estimates for federal, state, and self-employment tax. Never be surprised by a tax bill again.</p>
-    </div>
-    <div class="feat">
-      <div class="feat-icon">⚡</div>
-      <h3>Ready in 2 Minutes</h3>
-      <p>No complicated setup, no macros, no formulas to write. Open the file and start entering your numbers immediately.</p>
+    <div class="card-body">
+      <p>Automatically track income, expenses, profit margins, and quarterly tax estimates across all your side hustles in one spreadsheet.</p>
+      <ul class="card-features green-check">
+        <li>Auto-calculating dashboard</li>
+        <li>Income &amp; expense logs</li>
+        <li>Quarterly tax estimates</li>
+        <li>Works in Excel, Sheets &amp; Numbers</li>
+      </ul>
+      <div class="card-price"><strong>$9</strong> one-time</div>
+      <a href="https://liquidflow80.gumroad.com/l/tufwtf" class="card-btn btn-green">Get the Tracker →</a>
     </div>
   </div>
+
+  <!-- INVOICER -->
+  <div class="product-card" id="invoicer">
+    <div class="card-visual orange-bg">
+      <span class="card-emoji">🧾</span>
+      <h3>Invoicer</h3>
+      <p>Free invoice generator</p>
+      <div class="mini-preview">
+        <div class="mini-stat" style="flex:1"><div class="mini-stat-label">Create</div><div class="mini-stat-val" style="color:#FB923C;">invoices</div></div>
+        <div class="mini-stat" style="flex:1"><div class="mini-stat-label">Download</div><div class="mini-stat-val" style="color:#FB923C;">PDF</div></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Create clean, professional invoices in seconds. Fill in your details, add line items, and download a PDF — no signup, no fees.</p>
+      <ul class="card-features orange-check">
+        <li>Professional invoice layout</li>
+        <li>Automatic tax &amp; discount math</li>
+        <li>Multi-currency support</li>
+        <li>Download as PDF instantly</li>
+      </ul>
+      <div class="card-price"><strong>Free</strong> forever</div>
+      <a href="https://liquid1188.github.io/invoicer/" class="card-btn btn-orange">Open Invoicer →</a>
+    </div>
+  </div>
+
+  <!-- TEXTKIT -->
+  <div class="product-card" id="textkit">
+    <div class="card-visual blue-bg">
+      <span class="card-emoji">🔧</span>
+      <h3>TextKit</h3>
+      <p>Free text tools</p>
+      <div class="mini-tools">
+        <div class="mini-tool">Word Counter</div>
+        <div class="mini-tool">Case Converter</div>
+        <div class="mini-tool">Text Cleaner</div>
+        <div class="mini-tool">Lorem Ipsum</div>
+        <div class="mini-tool">Find &amp; Replace</div>
+        <div class="mini-tool">Encode/Decode</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Six essential text tools in one place. Count words, convert case, clean text, generate lorem ipsum, find &amp; replace, and encode/decode.</p>
+      <ul class="card-features blue-check">
+        <li>Word &amp; character counter</li>
+        <li>8 case conversion modes</li>
+        <li>Text cleaner &amp; sorter</li>
+        <li>Base64, URL &amp; HTML encoding</li>
+      </ul>
+      <div class="card-price"><strong>Free</strong> forever</div>
+      <a href="https://liquid1188.github.io/textkit/" class="card-btn btn-blue">Open TextKit →</a>
+    </div>
+  </div>
+
 </section>
 
-<section class="how">
-  <h2>How It Works</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Download</h3>
-      <p>Get the .xlsx file instantly after purchase. Open it in Excel, Google Sheets, or Numbers.</p>
+<section class="use-cases">
+  <h2>Built for People Who Work for Themselves</h2>
+  <div class="use-grid">
+    <div class="use-item">
+      <h3>🎨 Freelancers &amp; Designers</h3>
+      <p>Track project income, invoice clients, and know your tax bill before it arrives.</p>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>Log Your Numbers</h3>
-      <p>Enter income and expenses as they come in. Each entry takes about 10 seconds.</p>
+    <div class="use-item">
+      <h3>🛒 Etsy &amp; Gumroad Sellers</h3>
+      <p>Log every sale and expense. See monthly profit and what to set aside for taxes.</p>
     </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>See Everything</h3>
-      <p>The Dashboard and Tax Summary update automatically. Always know where you stand.</p>
+    <div class="use-item">
+      <h3>💻 Developers &amp; Writers</h3>
+      <p>Clean up text, count words, convert case, and generate placeholder content fast.</p>
+    </div>
+    <div class="use-item">
+      <h3>📋 Consultants &amp; Coaches</h3>
+      <p>Invoice clients instantly and track your consulting revenue in one spreadsheet.</p>
     </div>
   </div>
 </section>
@@ -398,44 +480,32 @@ footer {
   <h2>Frequently Asked Questions</h2>
   
   <div class="faq-item">
-    <h3>Does this work in Google Sheets?</h3>
-    <p>Yes. The template works in Microsoft Excel, Google Sheets, Apple Numbers, and LibreOffice. All formulas are compatible across platforms.</p>
+    <h3>Are the online tools really free?</h3>
+    <p>Yes. The Invoice Generator and TextKit are 100% free with no signup, no accounts, and no limits. The Side Hustle Tracker spreadsheet is a one-time $9 purchase — no subscriptions.</p>
   </div>
   
   <div class="faq-item">
-    <h3>How does the tax estimate work?</h3>
-    <p>The Tax Summary tab automatically estimates your federal income tax (22%), state tax (5%), and self-employment tax (15.3%) based on your net income after deductions. It also calculates recommended quarterly payment amounts so you can set money aside throughout the year. You can adjust all tax rates to match your actual bracket.</p>
+    <h3>Does the invoice generator save my data?</h3>
+    <p>No. Everything runs entirely in your browser. No data is sent to any server, nothing is stored, and no account is needed. Your invoice details stay on your device.</p>
   </div>
   
   <div class="faq-item">
-    <h3>Can I use this for multiple side hustles?</h3>
-    <p>Yes. The Income Log has a Category column so you can tag each payment by source — freelance, digital products, consulting, etc. The Dashboard shows your totals across all categories automatically.</p>
+    <h3>Does the income tracker work in Google Sheets?</h3>
+    <p>Yes. The .xlsx template works in Microsoft Excel, Google Sheets, Apple Numbers, and LibreOffice. All formulas are fully compatible across platforms.</p>
   </div>
   
   <div class="faq-item">
-    <h3>What if I'm not good with spreadsheets?</h3>
-    <p>The tracker includes a "How To Use" tab with step-by-step instructions. All you do is enter data in the Income and Expenses tabs — every calculation, total, and estimate is handled automatically by the built-in formulas.</p>
+    <h3>What text tools are included?</h3>
+    <p>TextKit includes a word/character counter with reading time estimates, a case converter with 8 modes (uppercase, lowercase, title, sentence, toggle, camelCase, snake_case, kebab-case), a text cleaner and sorter, Lorem Ipsum generator, find and replace, and Base64/URL/HTML encoding and decoding.</p>
   </div>
 
   <div class="faq-item">
-    <h3>Is there a subscription or recurring fee?</h3>
-    <p>No. You pay once and own the spreadsheet forever. There are no subscriptions, no accounts to create, and no software to install.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Who is this for?</h3>
-    <p>Anyone earning money outside of a traditional W-2 job — freelancers, Etsy sellers, Gumroad creators, Uber drivers, consultants, tutors, content creators, and anyone with a side hustle who wants to stay organized and know their tax obligation.</p>
+    <h3>Who made these tools?</h3>
+    <p>These tools are built by an independent maker. No corporate agenda, no data harvesting, no ads. Just useful tools that work.</p>
   </div>
 </section>
 
-<section class="bottom-cta">
-  <h2>Stop Guessing. Start Tracking.</h2>
-  <p>One spreadsheet. Every number you need. Set up in 2 minutes.</p>
-  <a href="GUMROAD_LINK" class="cta-btn">Get the Tracker — $9</a>
-  <span class="cta-sub">Instant download · One-time purchase · No subscription</span>
-</section>
-
-<footer>&copy; 2025 Side Hustle Tracker. All rights reserved.</footer>
+<footer>&copy; 2025 LiquidFlow Tools. All rights reserved.</footer>
 
 </body>
 </html>
